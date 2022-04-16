@@ -80,20 +80,6 @@ class MultisetFScoreTracker:
         """
         return self.missed_gold_labels
 
-    @staticmethod
-    def run_on_corpus(predicted_labels_corpus, gold_labels_corpus, number_of_wrong_labels_to_print=10):
-        """
-        Give this function two corpora (lists of lists of strings) of predicted and gold labels.
-        Then this function will return the recall, precision and f-score for the label multisets, as well as print
-        the most common wrongly predicted labels and missed gold labels.
-        """
-        tracker = MultisetFScoreTracker()
-        for predicted, gold in zip(predicted_labels_corpus, gold_labels_corpus):
-            tracker.process_instance(gold, predicted)
-        recall, precision, f = tracker.get_recall_precision_f()
-        print(f"Recall: {recall:.2f}, Precision: {precision:.2f}, F-score: {f:.2f}")
-        tracker.print_most_common_errors(number_of_wrong_labels_to_print)
-
     def print_most_common_errors(self, number_of_wrong_labels_to_print=10):
         MultisetFScoreTracker.__print_most_common_counts_formatted(self.wrong_predicted_labels,
                                                                    "wrongly predicted labels",
@@ -113,10 +99,24 @@ class MultisetFScoreTracker:
             print(f"{label}: {count}")
 
 
+def run_on_corpus(predicted_labels_corpus, gold_labels_corpus, number_of_wrong_labels_to_print=10):
+    """
+    Give this function two corpora (lists of lists of strings) of predicted and gold labels.
+    Then this function will return the recall, precision and f-score for the label multisets, as well as print
+    the most common wrongly predicted labels and missed gold labels.
+    """
+    tracker = MultisetFScoreTracker()
+    for predicted, gold in zip(predicted_labels_corpus, gold_labels_corpus):
+        tracker.process_instance(gold, predicted)
+    recall, precision, f = tracker.get_recall_precision_f()
+    print(f"Recall: {recall:.3f}, Precision: {precision:.3f}, F-score: {f:.3f}")
+    tracker.print_most_common_errors(number_of_wrong_labels_to_print)
+
+
 if __name__ == "__main__":
     # example usage
     predicted_labels_corpus = [["The", "cat", "is", "on", "the", "mat"], ["John", "loves", "Mary"],
                                ["John", "loves", "Mary"]]
     gold_labels_corpus = [["The", "cat", "sits", "on", "the", "desk"], ["John", "likes", "Mary"],
                           ["John", "hates", "pancakes"]]
-    MultisetFScoreTracker.run_on_corpus(predicted_labels_corpus, gold_labels_corpus)
+    run_on_corpus(predicted_labels_corpus, gold_labels_corpus)
