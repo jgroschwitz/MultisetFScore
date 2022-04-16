@@ -1,6 +1,11 @@
 from multiset_fscore import MultisetFScoreTracker
 
 if __name__ == "__main__":
+    """
+    This script computes the multiset F-score for a file named "out.gen.pred" in COGS format. It also counts and prints
+    the erroneously predicted labels as well as the missed labels. It also breaks this down for each generalization
+    category, so it requires more complex looping and printing than MultisetFScoreTracker.run_on_corpus().
+    """
     metrics_by_category = dict()
     metric = MultisetFScoreTracker()
     with open("out.gen.pred") as f:
