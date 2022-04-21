@@ -10,7 +10,7 @@ Say the system predicts the sentence "a mouse and a cat chase the mouse", and th
 Prediction: {"a": 2, "mouse": 2, "and": 1, "cat": 1, "chase":1, "the":1}
 Gold: {"a":1, "mouse": 2, "and": 1, "cat": 1, "chase": 1, "the":2, "second":1}
 
-Of the 8 predicted labels, 7 are correct ("a" is correct only once), and of the 9 gold labels, 7 were predicted ("second" was left out, and "the" only predicted once). Both 7s are actually the same number of _correctly predicted tokens".
+Of the 8 predicted labels, 7 are correct ("a" is correct only once), and of the 9 gold labels, 7 were predicted ("second" was left out, and "the" only predicted once). Both 7s are actually the same number of _correctly predicted tokens_.
 
 Then precision is 7/8=0.875 and recall is 7/9=0.77777..., yielding a multiset f-score of about 0.82.
 
