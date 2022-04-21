@@ -113,10 +113,14 @@ def run_on_corpus(predicted_labels_corpus, gold_labels_corpus, number_of_wrong_l
     tracker.print_most_common_errors(number_of_wrong_labels_to_print)
 
 
-if __name__ == "__main__":
+def main():
     # example usage
     predicted_labels_corpus = [["The", "cat", "is", "on", "the", "mat"], ["John", "loves", "Mary"],
                                ["John", "loves", "Mary"]]
     gold_labels_corpus = [["The", "cat", "sits", "on", "the", "desk"], ["John", "likes", "Mary"],
                           ["John", "hates", "pancakes"]]
     run_on_corpus(predicted_labels_corpus, gold_labels_corpus)
+
+
+if __name__ == "__main__":
+    main()

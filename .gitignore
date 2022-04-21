@@ -1,6 +1,8 @@
 
 .idea/*
+multiset_fscore.egg-info/*
 
 __pycache__/multiset_fscore.cpython-38.pyc
 out.gen.pred
 cogsGenEvaluation.txt
+__pycache__/multiset_fscore.cpython-37.pyc

@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 
 setuptools.setup(
-     name='multiset-f-score',
+     name='multiset_fscore',
      version='1.0',
      scripts=[] ,
      author="Jonas Groschwitz",
@@ -13,7 +13,10 @@ setuptools.setup(
      long_description=long_description,
      long_description_content_type="text/markdown",
      url="https://github.com/jgroschwitz/multisetfscore",
-     packages=setuptools.find_packages(),
+     packages=setuptools.find_packages(
+         where='.',
+         include=['multiset_fscore.py'],  # empty by default
+     ),
      classifiers=[
          "Programming Language :: Python :: 3",
      ],
