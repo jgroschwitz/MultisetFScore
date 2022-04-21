@@ -29,3 +29,8 @@ The most convenient use is the `run_on_corpus` in `multiset_fscore.py`, which ta
 ```
 
 For more custom-tailored use, make a `MultisetFScore` object, feed each prediction/gold sequence pair into `process_instance` and in the end call `get_recall_precision_f` to get the results.
+
+
+## Installation
+
+You can install this package by running `pip install -e .` (don't forget the dot) in its main directory. You can then `import multiset_fscore` to access the code in `multiset_fscore.py`.
